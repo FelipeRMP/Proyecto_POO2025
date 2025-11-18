@@ -1,6 +1,6 @@
 package proyecto_poo.modelo.usuario;
 
-public class Huesped {
+public class huesped {
     private int dni;
     private int telefono;
     private String nombres;
@@ -9,7 +9,7 @@ public class Huesped {
 
     // constructor
 
-    public Huesped(int dni, int telefono, String nombres, String  apellidos, String correo){
+    public huesped(int dni, int telefono, String nombres, String  apellidos, String correo){
         this.dni = dni;
         this.telefono = telefono;
         this.nombres = nombres;
