@@ -1,4 +1,4 @@
-package proyecto_poo.modelo.usuario;
+package proyecto_poo.modelo.entidad;
 
 public class huesped {
     private int dni;
@@ -8,7 +8,6 @@ public class huesped {
     private String correo;
 
     // constructor
-
     public huesped(int dni, int telefono, String nombres, String  apellidos, String correo){
         this.dni = dni;
         this.telefono = telefono;
@@ -18,7 +17,6 @@ public class huesped {
     }
 
     //getters
-
     public int getDni(){
         return dni;
     }
@@ -36,7 +34,6 @@ public class huesped {
     }
 
     //setters
-
     public void setDni(int dni){
         this.dni = dni;
     }

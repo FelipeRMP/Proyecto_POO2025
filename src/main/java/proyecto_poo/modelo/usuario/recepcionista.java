@@ -4,8 +4,8 @@ public class recepcionista extends usuario {
 
     //constructor
 
-    public recepcionista(String codigo_usuario, String clave) {
-        super(codigo_usuario, clave);
+    public recepcionista(String nombre_usuario, String clave) {
+        super(nombre_usuario, clave);
     }
 
 }
