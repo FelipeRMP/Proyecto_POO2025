@@ -1,0 +1,85 @@
+PROYECTO DEL CURSO
+CURSO: PROGRAMACIÓN ORIENTADA A OBJETOS
+PERIODO ACADÉMICO: 2025-2
+________________________________________
+OBJETIVOS:
+1.	Desarrollar un Sistema de Información (software) destinado a la gestión de reservas y estadías en un hotel.
+2.	El registro de datos del sistema se implementará utilizando programación orientada a objetos que utilice los conceptos de clases, objetos, arreglo de objetos, herencia, polimorfismo e interfaces.
+3.	Los temas de programación orientada a objetos que se utilizarán deberán ser aquellos implementados durante el curso.
+4.	Además, el sistema contará con una interfaz gráfica de usuario (GUI) que facilitará su uso para los usuarios (personal del hotel).
+________________________________________
+REQUERIMIENTOS FUNCIONALES DEL SISTEMA A DESARROLLAR
+1.	El sistema debe permitir al Administrador crear, modificar y eliminar Empleados (Recepcionistas, Administradores), ingresando datos como DNI, nombres, apellidos y rol.
+2.	El sistema debe permitir al Administrador registrar, modificar y eliminar Habitaciones. Cada habitación debe tener un número, capacidad máxima, precio por noche y un tipo (ej. Simple, Doble, Suite).
+3.	El sistema debe permitir al Recepcionista registrar, modificar y eliminar Huéspedes, incluyendo datos como DNI, nombres, apellidos y datos de contacto.
+4.	El sistema debe permitir al Administrador registrar, modificar y eliminar Servicios Adicionales que el hotel ofrece (ej. Lavandería, Servicio a la habitación, Frigobar), cada uno con un nombre y un precio.
+5.	El sistema debe permitir al Recepcionista crear una Reservación para un Huésped, asignando un rango de fechas y un tipo de habitación. El sistema debe validar la disponibilidad de habitaciones de ese tipo para las fechas solicitadas.
+6.	El sistema debe gestionar la Estadía del huésped:
+o	Check-in: El Recepcionista debe poder registrar el ingreso de un huésped (basado en una reservación), asignándole una habitación específica que esté disponible y registrada como "Limpia".
+o	Check-out: El Recepcionista debe poder registrar la salida del huésped. Al hacerlo, la habitación asignada debe pasar a estado "Sucia" o "En limpieza".
+7.	Durante la estadía activa de un huésped, el Recepcionista debe poder registrar consumos de Servicios Adicionales (ej. 2 servicios de lavandería, 1 consumo de frigobar).
+8.	El sistema debe realizar el cálculo automático de la facturación al momento del Check-out. Debe sumar el costo total de las noches de estadía (precio de la habitación * noches) más el costo de todos los servicios adicionales consumidos.
+9.	El sistema debe permitir la generación de informes básicos:
+o	Reporte de ocupación de habitaciones (qué habitaciones están ocupadas/libres).
+o	Reporte de ingresos generados en un rango de fechas, desglosado por costo de habitaciones y costo de servicios.
+10.	El sistema debe contar con un mecanismo de autenticación (login y password) para Empleados. Las funciones deben estar restringidas por rol (ej. solo el Administrador puede registrar habitaciones, el Recepcionista solo gestiona huéspedes y reservas).
+11.	El sistema debe contar con una interfaz de usuario intuitiva y accesible, que facilite al operador la realización eficiente de sus tareas.
+________________________________________
+ENTREGABLES O DOCUMENTACIÓN A PRESENTAR
+•	Código fuente de la implementación del Software en GitHub (u otro repositorio).
+•	Informe del desarrollo del proyecto, especificando el rol y aporte de cada integrante del equipo.
+________________________________________
+CONTENIDO DEL INFORME DEL PROYECTO
+1.	CARÁTULA
+2.	RESUMEN / ABSTRACT
+3.	PALABRAS CLAVES / KEY WORDS
+4.	INTRODUCCIÓN
+o	(Incluir los siguientes puntos: Identificación del problema, Objetivos, Metodología)
+5.	EL PROBLEMA
+
+6.	OBJETIVOS (SMART)
+7.	CAPÍTULO III: DESARROLLO DEL SISTEMA
+o	3.1. Diagrama de Clases
+	Diseña un diagrama de clases que represente todas las entidades del sistema.
+	Asegúrate de incluir atributos y métodos relevantes en cada clase.
+	Representa correctamente las relaciones entre clases (herencia, asociación, agregación o composición).
+	Usa notación UML estándar.
+3.2. Diagramas de Casos de Uso
+Según la funcionalidad general del sistema. Siguiendo la notación UML.
+o	3.3. Pruebas (calidad de software)
+	(Documentadas por el cumplimiento de un requerimiento. Ej. captura de pantalla y explicación de una prueba de creación de reserva).
+8.	CONCLUSIONES
+9.	RECOMENDACIONES
+10.	BIBLIOGRAFÍA
+________________________________________
+CALIFICACIÓN
+La calificación del trabajo se compone de dos partes: el desempeño grupal y la contribución individual.
+•	El equipo debe entregar un informe final y desarrollar un software funcional, ambos evaluados de forma grupal y equivalentes al 60% de la nota final del proyecto.
+•	El 40% restante corresponde a la evaluación individual de cada estudiante, basada en la presentación y sustentación de su aporte al desarrollo del proyecto.
+En la calificación se tienen en cuenta los siguientes factores que son indispensables:
+1.	Software funcionando según las funcionalidades solicitadas (Compilación y ejecución del código).
+2.	Es obligatorio utilizar los conceptos de programación orientada a objetos trabajadas en el curso (Herencia, Polimorfismo, Clases Abstractas, Interfaces, Arreglos de Objetos).
+3.	El uso de estos conceptos de POO es indispensable. Si el proyecto emplea otras soluciones que reemplacen la lógica solicitada (como librerías externas de gestión de datos, bases de datos, o frameworks que resuelvan la persistencia) en lugar de las estructuras y conceptos desarrollados en clase (ej. arreglos de objetos, gestión de estado en memoria), el trabajo será automáticamente descalificado y se calificará con nota cero.
+4.	Revisión de código fuente (Verificar si aplicaron los conceptos de POO).
+5.	Revisión de la calidad de la documentación de proyecto.
+
+
+Aporte Individual:
+•	Los integrantes del grupo deben coordinar de manera participativa las funcionalidades del software y asumir la responsabilidad asumidas de forma integral.
+•	Cada integrante debe explicar de manera clara cuál fue su aporte de valor al proyecto.
+•	Este aporte de valor debe estar identificado en el informe final, usando colores o secciones claras para integrar lo que hizo cada estudiante.
+•	Este documento es obligatorio para que se considere la nota del proyecto. Si no se presenta, no se evaluará su trabajo y el estudiante queda sin nota puesto que no habría forma de calificar su aporte.
+•	Cada integrante debe estar en la capacidad de explicar de forma clara la(s) funcionalidad(es) de todo el proyecto, incluyendo su objetivo, cómo funciona, cómo se implementó (mostrando el código) y cómo se integra con el resto del sistema.
+Sustentación:
+1.	La sustentación individual del trabajo se divide en dos partes.
+2.	La primera es un video grupal de 4 a 5 minutos, donde todos deben participar y presentar las funcionalidades operativas del sistema.
+3.	El video debe subirse a YouTube (o plataforma similar) en modo privado/no listado y compartir el enlace con el docente.
+4.	La segunda parte se realiza en clase, donde cada estudiante responderá preguntas específicas sobre cualquier parte del Proyecto, así como la arquitectura general del software.
+5.	Para la calificación de los puntos mencionados se proporcionarán las rúbricas de calificación correspondientes.
+________________________________________
+ENTREGA:
+•	Sustentar y entregar el trabajo a través de la plataforma virtual (Blackboard/Canvas) durante la Semana 15.
+•	La entrega debe incluir el informe (PDF), la URL del video y el código fuente de la aplicación de software (comprimido o enlace al repositorio).
+INTEGRANTES
+•	Cada grupo está conformado por 3 integrantes.
+

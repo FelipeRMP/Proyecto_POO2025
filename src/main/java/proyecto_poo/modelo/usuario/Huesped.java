@@ -1,4 +1,4 @@
-package proyecto_poo.prototipo;
+package proyecto_poo.modelo.usuario;
 
 public class Huesped {
     private int dni;
