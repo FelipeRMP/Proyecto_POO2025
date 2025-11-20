@@ -49,5 +49,9 @@ public class reserva {
     public void setFechaFin(LocalDate fechaFin){
         this.fechaFin = fechaFin;
     }
+
+    public void registrarReserva(huesped huesped, habitacion habitacion, serviciosAdicionales serviciosAdicionales, LocalDate fechaInicio, LocalDate fechaFin){
+
+    }
 }
 
