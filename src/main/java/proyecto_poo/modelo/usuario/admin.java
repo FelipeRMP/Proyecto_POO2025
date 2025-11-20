@@ -7,5 +7,9 @@ public class admin extends usuario {
         super(nombre_usuario, clave);
     }
 
+    //getter
+
+
+
 
 }

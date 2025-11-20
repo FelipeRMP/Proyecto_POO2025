@@ -1,5 +1,7 @@
 package proyecto_poo.modelo.entidad;
 
+import java.util.ArrayList;
+
 public class huesped {
     private int dni;
     private int telefono;
@@ -49,4 +51,7 @@ public class huesped {
     public void setCorreo(String correo){
         this.correo = correo;
     }
+
+
+
 }

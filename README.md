@@ -1,6 +1,6 @@
 # Proyecto POO2025
 
-Este proyecto es una aplicación Java desarrollada siguiendo el patrón arquitectónico Modelo-Vista-Controlador (MVC). Parece ser un sistema de gestión para reservas de hotel o un sistema similar, dado los módulos de `habitacion`, `huesped`, `reserva` y `serviciosAdicionales`.
+Este proyecto es una aplicación Java desarrollada siguiendo el patrón arquitectónico Modelo-Vista-Controlador (MVC). Es un sistema de reservas de hotel.
 
 ## Estructura de Carpetas
 
