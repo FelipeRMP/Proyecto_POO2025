@@ -1,39 +1,16 @@
+import proyecto_poo.controlador.baseDeDatos;
 import proyecto_poo.modelo.entidad.*;
 import proyecto_poo.modelo.usuario.*;
 
-
-
-
-
 public class ControladorMain {
 
-    ArrayList<habitacion> habitaciones = new ArrayList<>(
-            Arrays.asList(
-                    new habitacion(101, 2, 99.99, "simple"),
-                    new habitacion(102, 4, 189.99, "doble"),
-                    new habitacion(103, 4, 189.99, "doble"),
-                    new habitacion(104, 4, 249.99, "suite"),
-                    new habitacion(201, 2, 99.99, "simple"),
-                    new habitacion(202, 4, 189.99, "doble"),
-                    new habitacion(203, 4, 189.99, "doble"),
-                    new habitacion(204, 4, 249.99, "suite"),
-                    new habitacion(301, 2, 99.99, "simple"),
-                    new habitacion(302, 4, 189.99, "doble"),
-                    new habitacion(303, 4, 189.99, "doble"),
-                    new habitacion(304, 4, 249.99, "suite"),
-                    new habitacion(401, 2, 99.99, "simple"),
-                    new habitacion(402, 4, 189.99, "doble"),
-                    new habitacion(403, 4, 189.99, "doble"),
-                    new habitacion(404, 4, 249.99, "suite")
-            )
-    );
+
 
     ArrayList<usuario> usuario = new ArrayList<>(
             Arrays.asList(
                     new recepcionista()
             )
     );
-
 
 
 
@@ -70,54 +47,38 @@ public class ControladorMain {
     }
 
     //2. El sistema debe permitir al Administrador registrar, modificar y eliminar Habitaciones.
-    ArrayList<habitacion> lista_habitaciones = new ArrayList<>();
 
-    public void crearHabitacion(int numero, int capacidadMaxima, double precioPorNoche, String tipo){
-        habitacion nueva_habitacion = new habitacion(numero, capacidadMaxima, precioPorNoche, tipo);
-    }
-    public void eliminarHabitacion(habitacion habitacion_borrada){
-        lista_habitaciones.remove(habitacion_borrada);
-    }
-    public void modificarHabitacion(){
 
-    }
+    /// // LISTO, @REVISAR BASE DE DATOS
 
 
     /*3.	El sistema debe permitir al Recepcionista registrar, modificar y
     eliminar Huéspedes, incluyendo datos como DNI, nombres, apellidos y datos de contacto. */
 
-    ArrayList<huesped> lista_huespedes = new ArrayList<>();
 
-    public void registrarHuesped(int dni, int telefono, String nombres, String  apellidos, String correo){
-        huesped nuevo_huesped = new huesped(dni, telefono, nombres, apellidos, correo);
-        lista_huespedes.add(nuevo_huesped);
-    }
-    public void eliminarHuesped(huesped huesped_borrado){
-        lista_huespedes.remove(huesped_borrado);
-    }
-    public void modificarHuesped(){
+    /// ///// // LISTO, @REVISAR BASE DE DATOS
 
-    }
 
 
     //4.	El sistema debe permitir al Administrador registrar, modificar y eliminar Servicios Adicionales que \
     //el hotel ofrece (ej. Lavandería, Servicio a la habitación, Frigobar), cada uno con un nombre y un precio.
 
-    ArrayList<serviciosAdicionales> lista_servicios = new ArrayList<>();
 
-    public void registrarServicio(){
 
-    }
+    /// // // LISTO, @REVISAR BASE DE DATOS
+
+
 
     //5.	El sistema debe permitir al Recepcionista crear una Reservación para un Huésped, asignando un rango de
     // fechas y un tipo de habitación. El sistema debe validar la disponibilidad de habitaciones de ese
     // tipo para las fechas solicitadas.
 
-
-
-    public void check_in(){
+    public void crearReserva(huesped huesped, habitacion habitacion, serviciosAdicionales serviciosAdicionales,
+                             LocalDate fechaInicio){
 
     }
+
+
 
 }
 
@@ -128,7 +89,7 @@ public class ControladorMain {
     asignada debe pasar a estado "Sucia" o "En limpieza".*/
 
 
-
+    //LISTO, REVISAR @RESERVA
 
 
     /*7.	Durante la estadía activa de un huésped, el Recepcionista debe poder registrar consumos de

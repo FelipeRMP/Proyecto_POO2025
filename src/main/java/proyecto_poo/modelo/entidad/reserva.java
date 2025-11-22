@@ -1,5 +1,5 @@
 package proyecto_poo.modelo.entidad;
-
+import proyecto_poo.controlador.baseDeDatos;
 import java.time.LocalDate;
 
 public class reserva {
@@ -9,13 +9,20 @@ public class reserva {
     private serviciosAdicionales serviciosAdicionales;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
+    private boolean checkIn;
+    private int habitacion_reserva;
+
+
     //constructor
-    public reserva(huesped huesped, habitacion habitacion, serviciosAdicionales serviciosAdicionales, LocalDate fechaInicio, LocalDate fechaFin){
+    public reserva(huesped huesped, habitacion habitacion, serviciosAdicionales serviciosAdicionales,
+                   LocalDate fechaInicio, LocalDate fechaFin, boolean checkIn){
         this.huesped = huesped;
         this.habitacion = habitacion;
         this.serviciosAdicionales = serviciosAdicionales;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.checkIn = checkIn;
+
     }
     //getters
     public huesped getHuesped(){
@@ -33,6 +40,10 @@ public class reserva {
     public LocalDate getFechaFin(){
         return fechaFin;
     }
+    public boolean getCheckIn(){
+        return checkIn;
+    }
+
     //setters
     public void setHuesped(huesped huesped){
         this.huesped = huesped;
@@ -49,9 +60,30 @@ public class reserva {
     public void setFechaFin(LocalDate fechaFin){
         this.fechaFin = fechaFin;
     }
+    public void setCheckIn(boolean checkIn){
+        this.checkIn = checkIn;
+    }
 
     public void registrarReserva(huesped huesped, habitacion habitacion, serviciosAdicionales serviciosAdicionales, LocalDate fechaInicio, LocalDate fechaFin){
 
     }
+
+    public void checkIn(boolean checkIn){
+        setCheckIn(true);
+        for (habitacion h : baseDeDatos.habitaciones) {
+            if (habitacion.getEstado() == estado_habitacion.Disponible){
+                int habitacion_reserva = habitacion.getNumero();
+            }
+        }
+        habitacion.setEstado(estado_habitacion.Ocupada);
+    }
+
+    public void checkOut(boolean checkIn){
+        for (habitacion h : baseDeDatos.habitaciones) {
+            habitacion.setEstado(estado_habitacion.En_Limpieza);
+        }
+    }
+
+
 }
 

@@ -1,5 +1,8 @@
 package proyecto_poo.modelo.entidad;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class serviciosAdicionales {
     private String nombre;
     private double precio;
@@ -23,4 +26,6 @@ public class serviciosAdicionales {
     public void setPrecio(double precio){
         this.precio = precio;
     }
+
+
 }
