@@ -7,6 +7,8 @@ import proyecto_poo.modelo.entidad.serviciosAdicionales;
 import proyecto_poo.modelo.usuario.recepcionista;
 import proyecto_poo.modelo.usuario.tipo_usuario;
 import proyecto_poo.modelo.usuario.admin;
+import proyecto_poo.modelo.usuario.usuario;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -132,6 +134,23 @@ public class baseDeDatos {
             )
     );
 
+    // En proyecto_poo/controlador/baseDeDatos.java
 
+
+    public usuario validarLogin(String user, String pass) {
+        // 1. Buscar en Admins
+        for (admin a : lista_admins) {
+            if (a.getNombre_usuario().equals(user) && a.getClave().equals(pass)) {
+                return a; // Retornamos el usuario encontrado
+            }
+        }
+        // 2. Buscar en Recepcionistas
+        for (recepcionista r : lista_recepcionistas) {
+            if (r.getNombre_usuario().equals(user) && r.getClave().equals(pass)) {
+                return r;
+            }
+        }
+        return null; // Si no encuentra nada
+    }
 
 }
