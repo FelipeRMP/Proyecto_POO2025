@@ -4,6 +4,7 @@ import proyecto_poo.modelo.entidad.estado_habitacion;
 import proyecto_poo.modelo.entidad.habitacion;
 import proyecto_poo.modelo.entidad.huesped;
 import proyecto_poo.modelo.entidad.serviciosAdicionales;
+import proyecto_poo.modelo.usuario.recepcionista;
 import proyecto_poo.modelo.usuario.tipo_usuario;
 import proyecto_poo.modelo.usuario.admin;
 
@@ -35,7 +36,7 @@ public class baseDeDatos {
 
 
     private ArrayList<habitacion> habitaciones = new ArrayList<>(
-            Arrays.asList(
+            Arrays.asList(  
                     new habitacion(101, 2, 99.99, "simple", estado_habitacion.Disponible),
                     new habitacion(102, 4, 189.99, "doble", estado_habitacion.Disponible),
                     new habitacion(103, 4, 189.99, "doble", estado_habitacion.Disponible),
@@ -54,6 +55,10 @@ public class baseDeDatos {
                     new habitacion(404, 4, 249.99, "suite", estado_habitacion.Disponible)
             )
     );
+
+    public ArrayList<habitacion> getHabitaciones() {
+        return habitaciones;
+    }
 
     public void crearHabitacion(int numero, int capacidadMaxima, double precioPorNoche, String tipo, estado_habitacion estado){
         habitaciones.add(new habitacion(numero, capacidadMaxima, precioPorNoche, tipo, estado));
@@ -110,11 +115,7 @@ public class baseDeDatos {
                     new admin("admin", "admin123", tipo_usuario.ADMINISTRADOR)
             )
     );
-    private ArrayList<recepcionista> lista_recepcionistas = new ArrayList<>(
-            Arrays.asList(
-                    new recepcionista("recepcion", "hotel123", tipo_usuario.RECEPCIONISTA)
-            )
-    );
+
     public void crearAdmin(String nombre, String clave, tipo_usuario tipo){
         admin nuevo_admin = new admin(nombre, clave, tipo);
         lista_admins.add(nuevo_admin);
@@ -125,7 +126,11 @@ public class baseDeDatos {
     public void modificarAdmin(){
 
     }
-    
+    private ArrayList<recepcionista> lista_recepcionistas = new ArrayList<>(
+            Arrays.asList(
+                    new recepcionista("recepcion", "hotel123", tipo_usuario.RECEPCIONISTA)
+            )
+    );
 
 
 

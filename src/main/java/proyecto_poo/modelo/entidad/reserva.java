@@ -10,7 +10,6 @@ public class reserva {
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private boolean checkIn;
-    private int habitacion_reserva;
 
 
     //constructor
@@ -68,19 +67,28 @@ public class reserva {
 
     }
 
-    public void checkIn(boolean checkIn){
-        setCheckIn(true);
-        for (habitacion h : baseDeDatos.habitaciones) {
-            if (habitacion.getEstado() == estado_habitacion.Disponible){
-                int habitacion_reserva = habitacion.getNumero();
-            }
+
+    public void checkIn() { // No hace falta pasar el boolean por parámetro, se asume true
+        // 1. Actualizamos el estado interno de la reserva
+        this.checkIn = true;
+
+        // 2. Validamos habitación asignada y que esté disponible
+        if (this.habitacion != null && this.habitacion.getEstado() == estado_habitacion.Disponible) {
+
+            // 3. Modificamos DIRECTAMENTE el objeto habitación vinculado
+            this.habitacion.setEstado(estado_habitacion.Ocupada);
+            System.out.println("Check-in realizado con éxito en la habitación " + this.habitacion.getNumero());
+
+        } else {
+            System.out.println("Error: La habitación no está disponible o no existe.");
         }
-        habitacion.setEstado(estado_habitacion.Ocupada);
     }
 
-    public void checkOut(boolean checkIn){
-        for (habitacion h : baseDeDatos.habitaciones) {
-            habitacion.setEstado(estado_habitacion.En_Limpieza);
+    public void checkOut() {
+        // 1. Modificamos DIRECTAMENTE el objeto habitación vinculado
+        if (this.habitacion != null) {
+            this.habitacion.setEstado(estado_habitacion.En_Limpieza); // O Disponible, según tu lógica
+            System.out.println("Check-out realizado. Habitación " + this.habitacion.getNumero() + " enviada a limpieza.");
         }
     }
 
