@@ -4,6 +4,8 @@ import proyecto_poo.modelo.entidad.estado_habitacion;
 import proyecto_poo.modelo.entidad.habitacion;
 import proyecto_poo.modelo.entidad.huesped;
 import proyecto_poo.modelo.entidad.serviciosAdicionales;
+import proyecto_poo.modelo.usuario.tipo_usuario;
+import proyecto_poo.modelo.usuario.admin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,8 +99,33 @@ public class baseDeDatos {
     public ArrayList<serviciosAdicionales> getServicios() {
         return servicios;
     }
+    
+    
+    
+    ////////
+    
+    
+    private ArrayList<admin> lista_admins = new ArrayList<>(
+            Arrays.asList(
+                    new serviciosAdicionales("Desayuno buffet", 49.90)
+            )
+    );
+    private ArrayList<recepcionista> lista_recepcionistas = new ArrayList<>(
+            Arrays.asList(
+                    new serviciosAdicionales("Desayuno buffet", 49.90)
+            )
+    );
+    public void crearAdmin(String nombre, String clave, tipo_usuario tipo){
+        admin nuevo_admin = new admin(nombre, clave, tipo);
+        lista_admins.add(nuevo_admin);
+    }
+    public void eliminarAdmin(admin admin_borrado){
+        lista_admins.remove(admin_borrado);
+    }
+    public void modificarAdmin(){
 
-
+    }
+    
 
 
 
