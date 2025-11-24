@@ -107,12 +107,12 @@ public class baseDeDatos {
     
     private ArrayList<admin> lista_admins = new ArrayList<>(
             Arrays.asList(
-                    new serviciosAdicionales("Desayuno buffet", 49.90)
+                    new admin("admin", "admin123", tipo_usuario.ADMINISTRADOR)
             )
     );
     private ArrayList<recepcionista> lista_recepcionistas = new ArrayList<>(
             Arrays.asList(
-                    new serviciosAdicionales("Desayuno buffet", 49.90)
+                    new recepcionista("recepcion", "hotel123", tipo_usuario.RECEPCIONISTA)
             )
     );
     public void crearAdmin(String nombre, String clave, tipo_usuario tipo){
