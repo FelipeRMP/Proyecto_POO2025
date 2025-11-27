@@ -19,7 +19,7 @@ public class ControladorMain {
      */
     public usuario autenticarUsuario(String username, String password) {
         System.out.println("Llamando a la base de datos para autenticar a: " + username);
-        // Llama al método de validación real en la base de datos
+        // Llama al metodo de validcion
         return db.validarLogin(username, password);
     }
 }

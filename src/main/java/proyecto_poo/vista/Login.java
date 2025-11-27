@@ -1,10 +1,8 @@
 package proyecto_poo.vista;
-
 import proyecto_poo.controlador.ControladorMain;
 import proyecto_poo.modelo.usuario.admin;
 import proyecto_poo.modelo.usuario.recepcionista;
 import proyecto_poo.modelo.usuario.usuario;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -23,12 +21,13 @@ public class Login extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 400);
         setLocationRelativeTo(null); // Centrar en la pantalla
+        setResizable(false);
 
         // --- Creación de componentes ---
-        JPanel panelPrincipal = new JPanel(new GridLayout(3, 1, 10, 10));
+        JPanel panelPrincipal = new JPanel(new GridLayout(4, 1, 10, 10));
         panelPrincipal.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JLabel textoLogin = new JLabel("INICIAR SESIÓN", SwingConstants.CENTER);
+        JLabel textoLogin = new JLabel("INICIO DE SESIÓN", SwingConstants.CENTER);
         textoLogin.setFont(new Font("Arial", Font.BOLD, 24));
 
         JPanel panelCampos = new JPanel(new GridLayout(2, 2, 5, 5));
@@ -40,10 +39,12 @@ public class Login extends JFrame {
         panelCampos.add(pass_input);
 
         JButton botonLogin = new JButton("Iniciar Sesión");
+        JPanel blanco = new JPanel();
 
         // --- Añadir componentes al panel principal ---
         panelPrincipal.add(textoLogin);
         panelPrincipal.add(panelCampos);
+        panelPrincipal.add(blanco);
         panelPrincipal.add(botonLogin);
 
         // --- Acción del botón ---
