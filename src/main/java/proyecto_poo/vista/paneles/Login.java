@@ -1,4 +1,4 @@
-package proyecto_poo.vista;
+package proyecto_poo.vista.paneles;
 import proyecto_poo.controlador.ControladorMain;
 import proyecto_poo.modelo.usuario.admin;
 import proyecto_poo.modelo.usuario.recepcionista;

@@ -1,4 +1,4 @@
-package proyecto_poo.vista;
+package proyecto_poo.vista.paneles;
 
 import javax.swing.SwingUtilities;
 
