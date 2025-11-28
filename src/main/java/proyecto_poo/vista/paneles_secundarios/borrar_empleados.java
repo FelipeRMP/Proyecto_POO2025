@@ -13,8 +13,8 @@ public class borrar_empleados extends JFrame {
         setResizable(false);
 
         // --- Creación de componentes ---
-        JPanel panel_editar = new JPanel(new GridLayout(4, 1, 40, 10));
-        panel_editar.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        JPanel panel_borrar = new JPanel(new GridLayout(4, 1, 40, 10));
+        panel_borrar.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JLabel textoLogin = new JLabel("Editar Empleados", SwingConstants.CENTER);
         textoLogin.setFont(new Font("Arial", Font.BOLD, 24));

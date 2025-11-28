@@ -3,6 +3,8 @@ import proyecto_poo.controlador.ControladorMain;
 import proyecto_poo.modelo.usuario.admin;
 import proyecto_poo.modelo.usuario.recepcionista;
 import proyecto_poo.modelo.usuario.usuario;
+import proyecto_poo.vista.paneles_secundarios.crear_reserva;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -76,9 +78,18 @@ public class Login extends JFrame {
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
 
             }
+
+
         });
+
 
         // --- Añadir panel principal a la ventana ---
         add(panelPrincipal);
     }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new Login().setVisible(true);
+        });
+    }
+
 }
