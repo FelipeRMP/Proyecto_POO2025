@@ -3,6 +3,8 @@ import proyecto_poo.controlador.ControladorMain;
 import proyecto_poo.modelo.usuario.admin;
 import proyecto_poo.modelo.usuario.recepcionista;
 import proyecto_poo.modelo.usuario.usuario;
+import proyecto_poo.vista.paneles_secundarios.crear_reserva;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -63,7 +65,7 @@ public class Login extends JFrame {
                 // Comprueba el tipo de usuario y abre la ventana correspondiente
                 if (usuarioAutenticado instanceof admin) {
                     JOptionPane.showMessageDialog(null, "¡Login de Administrador exitoso!");
-                    new MenuAdmin().setVisible(true);
+                    new MenuAdmin(controlador).setVisible(true);
                     System.out.println("Login existoso - admin");
                 } else if (usuarioAutenticado instanceof recepcionista) {
                     JOptionPane.showMessageDialog(null, "¡Login de Recepcionista exitoso!");
@@ -76,9 +78,18 @@ public class Login extends JFrame {
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
 
             }
+
+
         });
+
 
         // --- Añadir panel principal a la ventana ---
         add(panelPrincipal);
     }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new Login().setVisible(true);
+        });
+    }
+
 }
