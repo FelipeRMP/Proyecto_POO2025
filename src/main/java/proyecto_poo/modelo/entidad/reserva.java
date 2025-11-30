@@ -67,7 +67,6 @@ public class reserva {
 
     }
 
-
     public void checkIn() { // No hace falta pasar el boolean por parámetro, se asume true
         // 1. Actualizamos el estado interno de la reserva
         this.checkIn = true;

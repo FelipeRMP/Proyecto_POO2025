@@ -30,30 +30,23 @@ public class MenuAdmin extends JFrame {
         JTabbedPane tabs = new JTabbedPane();
 
         // A. PESTANA EDITAR
-        JPanel editar = new JPanel(new GridLayout(3, 1, 10, 10));
+        JPanel editar = new JPanel(new GridLayout(2, 1, 10, 10));
         // Un margen interno para que los botones no toquen los bordes
-        editar.setBorder(BorderFactory.createEmptyBorder(60, 50, 60, 50));
+        editar.setBorder(BorderFactory.createEmptyBorder(80, 50, 80, 50));
 
-        JButton Borrar = new JButton("Borrar Empleado");
-        JButton Agregar = new JButton("Agregar Empleado");
-        JButton Modificar = new JButton("Modificar Empleado");
+        JButton agregarEmpleadoBtn = new JButton("Agregar Empleado");
+        JButton modificarEmpleadoBtn = new JButton("Modificar Empleado");
 
-        Borrar.addActionListener(e -> {
-            new borrar_empleados().setVisible(true);
+        agregarEmpleadoBtn.addActionListener(e -> {
+            new agregar_empleado().setVisible(true);
         });
 
-        Agregar.addActionListener(e -> {
-            new agregar_empleados().setVisible(true);
+        modificarEmpleadoBtn.addActionListener(e -> {
+            new modificar_empleado().setVisible(true);
         });
 
-        Modificar.addActionListener(e -> {
-            new modificar_empleados().setVisible(true);
-        });
-
-
-        editar.add(Borrar);
-        editar.add(Agregar);
-        editar.add(Modificar);
+        editar.add(agregarEmpleadoBtn);
+        editar.add(modificarEmpleadoBtn);
 
 
 
@@ -62,26 +55,21 @@ public class MenuAdmin extends JFrame {
 
 
         // B. PESTANA RESERVA
-        JPanel reserva = new JPanel(new GridLayout(3, 1, 10, 10));
-        reserva.setBorder(BorderFactory.createEmptyBorder(60, 50, 60, 50));
+        JPanel reserva = new JPanel(new GridLayout(2, 1, 10, 10)); // Cambiado a 2 filas
+        reserva.setBorder(BorderFactory.createEmptyBorder(80, 50, 80, 50)); // Ajustar margen si es necesario
 
-        JButton Buscar = new JButton("Buscar Reserva");
         JButton Crear = new JButton("Crear reserva");
-        JButton Modificar_reserva = new JButton("Modificar Reserva");
-
-        Buscar.addActionListener(e -> {
-            new buscar_reserva().setVisible(true);
-        });
+        JButton Modificar_reserva = new JButton("Buscar y Modificar Reserva");
 
         Crear.addActionListener(e -> {
             new crear_reserva(controlador).setVisible(true);
         });
 
         Modificar_reserva.addActionListener(e -> {
-            new modificar_reserva().setVisible(true);
+            // Ahora abre la ventana unificada
+            new modificar_reserva(controlador).setVisible(true);
         });
 
-        reserva.add(Buscar);
         reserva.add(Crear);
         reserva.add(Modificar_reserva);
 

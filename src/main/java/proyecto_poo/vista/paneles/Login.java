@@ -57,6 +57,30 @@ public class Login extends JFrame {
             // Llama al controlador para que haga la validación, ahora devuelve un objeto usuario
             usuario usuarioAutenticado = controlador.autenticarUsuario(user, pass);
 
+            /*
+            Sugerencia: Usar early returns. En lugar de comprobar que NO sea nulo, comprobamos que SI lo sea.
+            Asi evitamos el nesting innecesario.
+            ATT: Alan
+            if (usuarioAutenticado == null) {
+                System.out.println("Error de input");
+                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+            this.dispose();
+
+            // Comprueba el tipo de usuario y abre la ventana correspondiente
+            if (usuarioAutenticado instanceof admin) {
+                JOptionPane.showMessageDialog(null, "¡Login de Administrador exitoso!");
+                new MenuAdmin(controlador).setVisible(true);
+                System.out.println("Login existoso - admin");
+            } else if (usuarioAutenticado instanceof recepcionista) {
+                JOptionPane.showMessageDialog(null, "¡Login de Recepcionista exitoso!");
+                new MenuRecepcionista().setVisible(true);
+                System.out.println("Login existoso - recepcionista");
+            */
+
+
             // Comprueba si el usuario es nulo (fallo en el login)
             if (usuarioAutenticado != null) {
                 // Cierra la ventana de login

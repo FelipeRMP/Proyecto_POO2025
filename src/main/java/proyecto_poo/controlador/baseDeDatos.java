@@ -3,6 +3,7 @@ package proyecto_poo.controlador;
 import proyecto_poo.modelo.entidad.estado_habitacion;
 import proyecto_poo.modelo.entidad.habitacion;
 import proyecto_poo.modelo.entidad.huesped;
+import proyecto_poo.modelo.entidad.reserva;
 import proyecto_poo.modelo.entidad.serviciosAdicionales;
 import proyecto_poo.modelo.usuario.recepcionista;
 import proyecto_poo.modelo.usuario.tipo_usuario;
@@ -35,6 +36,26 @@ public class baseDeDatos {
 
 
     /// /////////
+
+    private ArrayList<reserva> reservas = new ArrayList<>();
+
+    public void agregarReserva(reserva nuevaReserva) {
+        reservas.add(nuevaReserva);
+        System.out.println("Reserva agregada exitosamente para el huésped: " + nuevaReserva.getHuesped().getNombres());
+    }
+
+    public ArrayList<reserva> getReservas() {
+        return reservas;
+    }
+
+    public reserva buscarReservaPorDniHuesped(int dni) {
+        for (reserva r : reservas) {
+            if (r.getHuesped().getDni() == dni) {
+                return r;
+            }
+        }
+        return null; // No se encontró la reserva
+    }
 
 
     private ArrayList<habitacion> habitaciones = new ArrayList<>(
@@ -128,6 +149,12 @@ public class baseDeDatos {
     public void modificarAdmin(){
 
     }
+
+    public void crearRecepcionista(String nombre, String clave, tipo_usuario tipo) {
+        recepcionista nuevo_recepcionista = new recepcionista(nombre, clave, tipo);
+        lista_recepcionistas.add(nuevo_recepcionista);
+    }
+
     private ArrayList<recepcionista> lista_recepcionistas = new ArrayList<>(
             Arrays.asList(
                     new recepcionista("recepcion", "hotel123", tipo_usuario.RECEPCIONISTA)
