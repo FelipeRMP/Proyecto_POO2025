@@ -165,6 +165,42 @@ public class baseDeDatos {
     public void modificarAdmin(){
 
     }
+    public usuario buscarEmpleadoPorNombreUsuario(String nombreUsuario) {
+        for (admin a : lista_admins) {
+            if (a.getNombre_usuario().equals(nombreUsuario)) {
+                return a;
+            }
+        }
+        for (recepcionista r : lista_recepcionistas) {
+            if (r.getNombre_usuario().equals(nombreUsuario)) {
+                return r;
+            }
+        }
+        return null;
+    }
+
+    public void actualizarEmpleado(usuario empleadoActualizado) {
+        if (empleadoActualizado instanceof admin) {
+            admin adminActualizado = (admin) empleadoActualizado;
+            for (int i = 0; i < lista_admins.size(); i++) {
+                if (lista_admins.get(i).getNombre_usuario().equals(adminActualizado.getNombre_usuario())) {
+                    lista_admins.set(i, adminActualizado);
+                    System.out.println("Administrador " + adminActualizado.getNombre_usuario() + " actualizado.");
+                    return;
+                }
+            }
+        } else if (empleadoActualizado instanceof recepcionista) {
+            recepcionista recepcionistaActualizado = (recepcionista) empleadoActualizado;
+            for (int i = 0; i < lista_recepcionistas.size(); i++) {
+                if (lista_recepcionistas.get(i).getNombre_usuario().equals(recepcionistaActualizado.getNombre_usuario())) {
+                    lista_recepcionistas.set(i, recepcionistaActualizado);
+                    System.out.println("Recepcionista " + recepcionistaActualizado.getNombre_usuario() + " actualizado.");
+                    return;
+                }
+            }
+        }
+        System.out.println("Error: Empleado no encontrado para actualizar.");
+    }
 
     public void crearRecepcionista(String nombre, String clave, tipo_usuario tipo) {
         recepcionista nuevo_recepcionista = new recepcionista(nombre, clave, tipo);
