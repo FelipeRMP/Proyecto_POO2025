@@ -170,6 +170,9 @@ public class modificar_reserva extends JFrame {
             reserva_actual.setFechaInicio(LocalDate.parse(fecha_inicio_field.getText(), formatter));
             reserva_actual.setFechaFin(LocalDate.parse(fecha_fin_field.getText(), formatter));
 
+            // Llamar al controlador para que la base de datos persista los cambios
+            controlador.getDb().actualizarReserva(reserva_actual);
+
             JOptionPane.showMessageDialog(this, "Reserva actualizada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
 

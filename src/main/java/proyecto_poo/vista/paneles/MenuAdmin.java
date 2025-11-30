@@ -38,11 +38,11 @@ public class MenuAdmin extends JFrame {
         JButton modificarEmpleadoBtn = new JButton("Modificar Empleado");
 
         agregarEmpleadoBtn.addActionListener(e -> {
-            new agregar_empleado().setVisible(true);
+            new agregar_empleado(controlador).setVisible(true);
         });
 
         modificarEmpleadoBtn.addActionListener(e -> {
-            new modificar_empleado().setVisible(true);
+            new modificar_empleado(controlador).setVisible(true);
         });
 
         editar.add(agregarEmpleadoBtn);
@@ -85,11 +85,11 @@ public class MenuAdmin extends JFrame {
         JButton check_out_btn = new JButton("Check Out");
 
         check_in_btn.addActionListener(e -> {
-            new check_in().setVisible(true);
+            new check_in(controlador).setVisible(true);
         });
 
         check_out_btn.addActionListener(e -> {
-            new check_out().setVisible(true);
+            new check_out(controlador).setVisible(true);
         });
 
         check.add(check_in_btn);

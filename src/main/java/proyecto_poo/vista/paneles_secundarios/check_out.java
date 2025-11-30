@@ -1,11 +1,16 @@
 package proyecto_poo.vista.paneles_secundarios;
 
+import proyecto_poo.controlador.ControladorMain;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class check_out extends JFrame {
 
-    public check_out() {
+    private ControladorMain controlador;
+
+    public check_out(ControladorMain controlador) {
+        this.controlador = controlador;
 
         setTitle("Sistema de Gestión Hotelera - Check Out");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -21,11 +26,5 @@ public class check_out extends JFrame {
 
         panel.add(titulo);
         add(panel);
-
-        setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new check_out();
     }
 }

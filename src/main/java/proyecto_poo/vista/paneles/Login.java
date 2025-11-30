@@ -93,7 +93,7 @@ public class Login extends JFrame {
                     System.out.println("Login existoso - admin");
                 } else if (usuarioAutenticado instanceof recepcionista) {
                     JOptionPane.showMessageDialog(null, "¡Login de Recepcionista exitoso!");
-                    new MenuRecepcionista().setVisible(true);
+                    new MenuRecepcionista(controlador).setVisible(true);
                     System.out.println("Login existoso - recepcionista");
                 }
             } else {

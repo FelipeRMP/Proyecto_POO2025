@@ -57,6 +57,18 @@ public class baseDeDatos {
         return null; // No se encontró la reserva
     }
 
+    public void actualizarReserva(reserva reservaActualizada) {
+        for (int i = 0; i < reservas.size(); i++) {
+            reserva r = reservas.get(i);
+            if (r.getHuesped().getDni() == reservaActualizada.getHuesped().getDni()) {
+                // Actualizamos la reserva en la lista
+                reservas.set(i, reservaActualizada);
+                System.out.println("Reserva actualizada para el DNI: " + reservaActualizada.getHuesped().getDni());
+                return; // Salimos del método una vez actualizada
+            }
+        }
+    }
+
 
     private ArrayList<habitacion> habitaciones = new ArrayList<>(
             Arrays.asList(  
