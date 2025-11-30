@@ -118,6 +118,10 @@ public class baseDeDatos {
             )
     );
 
+    public ArrayList<admin> getListaAdmins() {
+        return lista_admins;
+    }
+
     public void crearAdmin(String nombre, String clave, tipo_usuario tipo){
         admin nuevo_admin = new admin(nombre, clave, tipo);
         lista_admins.add(nuevo_admin);
@@ -133,6 +137,27 @@ public class baseDeDatos {
                     new recepcionista("recepcion", "hotel123", tipo_usuario.RECEPCIONISTA)
             )
     );
+
+    public ArrayList<recepcionista> getListaRecepcionistas() {
+        return lista_recepcionistas;
+    }
+
+    public void agregarEmpleado(String nombre, String clave, tipo_usuario tipo) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre de usuario no puede estar vacío");
+        }
+        if (clave == null || clave.isEmpty()) {
+            throw new IllegalArgumentException("La contraseña no puede estar vacía");
+        }
+        if (tipo == null) {
+            throw new IllegalArgumentException("Debe seleccionar un tipo de usuario válido");
+        }
+
+        switch (tipo) {
+            case ADMINISTRADOR -> lista_admins.add(new admin(nombre.trim(), clave, tipo_usuario.ADMINISTRADOR));
+            case RECEPCIONISTA -> lista_recepcionistas.add(new recepcionista(nombre.trim(), clave, tipo_usuario.RECEPCIONISTA));
+        }
+    }
 
     // En proyecto_poo/controlador/baseDeDatos.java
 
