@@ -72,6 +72,10 @@ public class crear_reserva extends JFrame {
                     btn.setBackground(Color.RED);
                     btn.setEnabled(false);
                     break;
+                case Reservada:
+                    btn.setBackground(new Color(33, 150, 243));
+                    btn.setEnabled(false);
+                    break;
                 case En_Limpieza:
                     btn.setBackground(Color.ORANGE);
                     btn.setEnabled(false);
@@ -118,6 +122,11 @@ public class crear_reserva extends JFrame {
                 LocalDate fechaInicio = LocalDate.parse(fecha_inicio.getText(), formatter);
                 LocalDate fechaFin = LocalDate.parse(fecha_fin.getText(), formatter);
 
+                if (!fechaFin.isAfter(fechaInicio)) {
+                    JOptionPane.showMessageDialog(this, "La fecha de check-out debe ser posterior a la de check-in.", "Rango de fechas inválido", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 ///// 3. Crear objeto huesped y registrarlo
                 huesped nuevoHuesped = new huesped(dni, telefono, nombre, apellidos, correo);
                 controlador.getDb().registrarHuesped(dni, telefono, nombre, apellidos, correo);
@@ -137,8 +146,16 @@ public class crear_reserva extends JFrame {
                      return;
                 }
 
+                if (habitacionSeleccionada.getEstado() != proyecto_poo.modelo.entidad.estado_habitacion.Disponible) {
+                    JOptionPane.showMessageDialog(this, "La habitación seleccionada ya no está disponible.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 // 5. Crear la reserva
                 reserva nuevaReserva = new reserva(nuevoHuesped, habitacionSeleccionada, null, fechaInicio, fechaFin, false);
+
+                // Marcar la habitación como reservada para evitar dobles asignaciones
+                habitacionSeleccionada.setEstado(proyecto_poo.modelo.entidad.estado_habitacion.Reservada);
 
                 // 6. Guardar la reserva a través del controlador
                 controlador.getDb().agregarReserva(nuevaReserva);
