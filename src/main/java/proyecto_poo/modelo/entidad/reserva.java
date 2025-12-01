@@ -72,7 +72,9 @@ public class reserva {
         this.checkIn = true;
 
         // 2. Validamos habitación asignada y que esté disponible
-        if (this.habitacion != null && this.habitacion.getEstado() == estado_habitacion.Disponible) {
+        if (this.habitacion != null &&
+                (this.habitacion.getEstado() == estado_habitacion.Disponible
+                        || this.habitacion.getEstado() == estado_habitacion.Reservada)) {
 
             // 3. Modificamos DIRECTAMENTE el objeto habitación vinculado
             this.habitacion.setEstado(estado_habitacion.Ocupada);

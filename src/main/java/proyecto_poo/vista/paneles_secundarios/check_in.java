@@ -79,7 +79,8 @@ public class check_in extends JFrame {
                 JOptionPane.showMessageDialog(this, "No se encontró ninguna reserva para el DNI proporcionado.", "Error", JOptionPane.ERROR_MESSAGE);
             } else if (reserva.getCheckIn()) {
                 JOptionPane.showMessageDialog(this, "El huésped ya ha realizado el check-in previamente.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            } else if (reserva.getHabitacion().getEstado() != estado_habitacion.Disponible) {
+            } else if (reserva.getHabitacion().getEstado() == estado_habitacion.En_Limpieza ||
+                    reserva.getHabitacion().getEstado() == estado_habitacion.Ocupada) {
                 JOptionPane.showMessageDialog(this, "La habitación " + reserva.getHabitacion().getNumero() + " no está disponible en este momento. Estado actual: " + reserva.getHabitacion().getEstado(), "Error de Habitación", JOptionPane.ERROR_MESSAGE);
             } else {
                 // Si todo está correcto, realizamos el check-in

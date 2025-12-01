@@ -119,6 +119,9 @@ public class MenuRecepcionista extends JFrame {
                                 case Ocupada:
                                     btn.setBackground(new Color(244, 67, 54)); // Rojo
                                     break;
+                                case Reservada:
+                                    btn.setBackground(new Color(33, 150, 243)); // Azul
+                                    break;
                                 case En_Limpieza:
                                     btn.setBackground(new Color(255, 235, 59)); // Amarillo
                                     break;

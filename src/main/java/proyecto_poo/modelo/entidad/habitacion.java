@@ -17,7 +17,7 @@ public class habitacion {
         this.capacidadMaxima = capacidadMaxima;
         this.precioPorNoche = precioPorNoche;
         this.tipo = tipo;
-        this.estado = estado_habitacion.Disponible;
+        this.estado = estado;
     }
 
     //getters
