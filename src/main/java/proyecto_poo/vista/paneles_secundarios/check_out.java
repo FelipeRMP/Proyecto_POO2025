@@ -79,10 +79,50 @@ public class check_out extends JFrame {
             } else if (!reserva.getCheckIn()) {
                 JOptionPane.showMessageDialog(this, "El huésped no ha realizado el check-in, por lo que no puede hacer check-out.", "Advertencia", JOptionPane.WARNING_MESSAGE);
             } else {
-                // Si todo está correcto, realizamos el check-out
-                reserva.checkOut();
-                JOptionPane.showMessageDialog(this, "¡Check-out realizado con éxito!\nLa habitación pasará a estado de limpieza.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
+                // Calcular costos
+                long noches = reserva.getNumeroNoches();
+                double precioNoche = reserva.getHabitacion().getPrecioPorNoche();
+                double subtotalHabitacion = reserva.calcularSubtotalHabitacion();
+                double subtotalServicios = reserva.calcularSubtotalServicios();
+                double total = reserva.calcularCostoTotal();
+
+                // Construir el resumen
+                StringBuilder resumen = new StringBuilder();
+                resumen.append("--- Resumen de Costos ---\n\n");
+                resumen.append("Huésped: ").append(reserva.getHuesped().getNombres()).append(" ").append(reserva.getHuesped().getApellidos()).append("\n");
+                resumen.append("Habitación: ").append(reserva.getHabitacion().getNumero()).append("\n\n");
+                resumen.append("Estadía:\n");
+                resumen.append(String.format(" - Precio por noche: $%.2f\n", precioNoche));
+                resumen.append(String.format(" - Número de noches: %d\n", noches));
+                resumen.append(String.format(" - Subtotal Habitación: $%.2f\n\n", subtotalHabitacion));
+
+                resumen.append("Servicios Adicionales:\n");
+                if (reserva.getServiciosAdicionales().isEmpty()) {
+                    resumen.append(" - Ninguno\n");
+                } else {
+                    for (proyecto_poo.modelo.entidad.serviciosAdicionales servicio : reserva.getServiciosAdicionales()) {
+                        resumen.append(String.format(" - %s: $%.2f\n", servicio.getNombre(), servicio.getPrecio()));
+                    }
+                }
+                resumen.append(String.format(" - Subtotal Servicios: $%.2f\n\n", subtotalServicios));
+                resumen.append("---------------------------------\n");
+                resumen.append(String.format("TOTAL A PAGAR: $%.2f\n", total));
+
+                // Mostrar el dialogo de confirmación
+                JTextArea textArea = new JTextArea(resumen.toString());
+                textArea.setEditable(false);
+                JScrollPane scrollPane = new JScrollPane(textArea);
+                scrollPane.setPreferredSize(new Dimension(350, 250)); // Ajustar tamaño
+
+                int opcion = JOptionPane.showConfirmDialog(this, scrollPane, "Confirmar Check-Out y Pago",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+                if (opcion == JOptionPane.OK_OPTION) {
+                    // Si todo está correcto, realizamos el check-out
+                    reserva.checkOut();
+                    JOptionPane.showMessageDialog(this, "¡Check-out realizado con éxito!\nLa habitación pasará a estado de limpieza.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                }
             }
 
         } catch (NumberFormatException ex) {

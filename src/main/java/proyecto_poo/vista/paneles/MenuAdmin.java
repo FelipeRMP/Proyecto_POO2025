@@ -67,7 +67,7 @@ public class MenuAdmin extends JFrame {
         tabs.addTab("Editar", editar);
         tabs.addTab("Reserva", reserva);
         tabs.addTab("Check in/out", check);
-        tabs.addTab("Habitaciones Disponibles", habitaciones);
+        tabs.addTab("Habitaciones y Servicios", habitaciones);
 
         // --- ChangeListener para actualizar la vista de habitaciones ---
         tabs.addChangeListener(e -> {
@@ -105,27 +105,81 @@ public class MenuAdmin extends JFrame {
         for (Component comp : habitaciones.getComponents()) {
             if (comp instanceof JButton) {
                 JButton btn = (JButton) comp;
+
+                // Limpiar listeners antiguos para evitar duplicados
+                for (java.awt.event.ActionListener al : btn.getActionListeners()) {
+                    btn.removeActionListener(al);
+                }
+
                 try {
                     int numHabitacion = Integer.parseInt(btn.getName());
+                    proyecto_poo.modelo.entidad.habitacion hab = listaHabitaciones.stream()
+                            .filter(h -> h.getNumero() == numHabitacion)
+                            .findFirst()
+                            .orElse(null);
 
-                    for (proyecto_poo.modelo.entidad.habitacion hab : listaHabitaciones) {
-                        if (hab.getNumero() == numHabitacion) {
-                            switch (hab.getEstado()) {
-                                case Disponible:
-                                    btn.setBackground(new Color(76, 175, 80)); // Verde
-                                    break;
-                                case Ocupada:
-                                    btn.setBackground(new Color(244, 67, 54)); // Rojo
-                                    break;
-                                case Reservada:
-                                    btn.setBackground(new Color(33, 150, 243)); // Azul
-                                    break;
-                                case En_Limpieza:
-                                    btn.setBackground(new Color(255, 235, 59)); // Amarillo
-                                    break;
-                            }
-                            break; 
+                    if (hab != null) {
+                        switch (hab.getEstado()) {
+                            case Disponible:
+                                btn.setBackground(new Color(76, 175, 80)); // Verde
+                                break;
+                            case Ocupada:
+                                btn.setBackground(new Color(244, 67, 54)); // Rojo
+                                break;
+                            case Reservada:
+                                btn.setBackground(new Color(33, 150, 243)); // Azul
+                                break;
+                            case En_Limpieza:
+                                btn.setBackground(new Color(255, 235, 59)); // Amarillo
+                                break;
                         }
+
+                        // Añadir ActionListener para la funcionalidad de agregar servicios
+                        btn.addActionListener(e -> {
+                            if (hab.getEstado() == estado_habitacion.Ocupada) {
+                                proyecto_poo.modelo.entidad.reserva reservaActiva = controlador.getDb().getReservaActivaPorHabitacion(numHabitacion);
+                                if (reservaActiva != null) {
+                                    // Crear un panel para el dialogo
+                                    JTextField nombreServicioField = new JTextField();
+                                    JTextField precioServicioField = new JTextField();
+                                    JPanel panel = new JPanel(new GridLayout(0, 2, 5, 5));
+                                    panel.add(new JLabel("Nombre del Servicio:"));
+                                    panel.add(nombreServicioField);
+                                    panel.add(new JLabel("Precio:"));
+                                    panel.add(precioServicioField);
+
+                                    int result = JOptionPane.showConfirmDialog(this, panel, "Agregar Servicio Adicional",
+                                            JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+                                    if (result == JOptionPane.OK_OPTION) {
+                                        String nombre = nombreServicioField.getText();
+                                        String precioStr = precioServicioField.getText();
+                                        if (nombre.isEmpty() || precioStr.isEmpty()) {
+                                            JOptionPane.showMessageDialog(this, "El nombre y el precio no pueden estar vacíos.", "Error", JOptionPane.ERROR_MESSAGE);
+                                            return;
+                                        }
+
+                                        try {
+                                            double precio = Double.parseDouble(precioStr);
+                                            proyecto_poo.modelo.entidad.serviciosAdicionales nuevoServicio =
+                                                    new proyecto_poo.modelo.entidad.serviciosAdicionales(nombre, precio);
+                                            reservaActiva.agregarServicioAdicional(nuevoServicio);
+
+                                            // Opcional: Guardar el estado de la reserva actualizada si es necesario
+                                            // controlador.getDb().actualizarReserva(reservaActiva);
+
+                                            JOptionPane.showMessageDialog(this, "Servicio '" + nombre + "' agregado a la habitación " + numHabitacion + ".",
+                                                    "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                                        } catch (NumberFormatException ex) {
+                                            JOptionPane.showMessageDialog(this, "Por favor, ingrese un precio válido.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+                                        }
+                                    }
+                                } else {
+                                    JOptionPane.showMessageDialog(this, "No se encontró una reserva activa para esta habitación ocupada.",
+                                            "Error", JOptionPane.ERROR_MESSAGE);
+                                }
+                            }
+                        });
                     }
                 } catch (NumberFormatException ex) {
                     // Ignorar botones que no tengan un número como nombre

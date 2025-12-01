@@ -209,7 +209,7 @@ public class baseDeDatos {
 
     private ArrayList<recepcionista> lista_recepcionistas = new ArrayList<>(
             Arrays.asList(
-                    new recepcionista("recepcion", "hotel123", tipo_usuario.RECEPCIONISTA)
+                    new recepcionista("recepcion", "recepcion123", tipo_usuario.RECEPCIONISTA)
             )
     );
 
@@ -232,6 +232,15 @@ public class baseDeDatos {
             case ADMINISTRADOR -> lista_admins.add(new admin(nombre.trim(), clave, tipo_usuario.ADMINISTRADOR));
             case RECEPCIONISTA -> lista_recepcionistas.add(new recepcionista(nombre.trim(), clave, tipo_usuario.RECEPCIONISTA));
         }
+    }
+
+    public reserva getReservaActivaPorHabitacion(int numHabitacion) {
+        for (reserva r : reservas) {
+            if (r.getHabitacion() != null && r.getHabitacion().getNumero() == numHabitacion && r.getCheckIn()) {
+                return r;
+            }
+        }
+        return null; // No se encontró una reserva activa para esa habitación
     }
 
     // En proyecto_poo/controlador/baseDeDatos.java

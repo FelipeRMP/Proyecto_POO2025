@@ -152,7 +152,7 @@ public class crear_reserva extends JFrame {
                 }
 
                 // 5. Crear la reserva
-                reserva nuevaReserva = new reserva(nuevoHuesped, habitacionSeleccionada, null, fechaInicio, fechaFin, false);
+                reserva nuevaReserva = new reserva(nuevoHuesped, habitacionSeleccionada, fechaInicio, fechaFin, false);
 
                 // Marcar la habitación como reservada para evitar dobles asignaciones
                 habitacionSeleccionada.setEstado(proyecto_poo.modelo.entidad.estado_habitacion.Reservada);

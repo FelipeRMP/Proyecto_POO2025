@@ -1,23 +1,25 @@
 package proyecto_poo.modelo.entidad;
 import proyecto_poo.controlador.baseDeDatos;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class reserva {
     //atributos
     private huesped huesped;
     private habitacion habitacion;
-    private serviciosAdicionales serviciosAdicionales;
+    private List<serviciosAdicionales> serviciosAdicionales;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private boolean checkIn;
 
 
     //constructor
-    public reserva(huesped huesped, habitacion habitacion, serviciosAdicionales serviciosAdicionales,
+    public reserva(huesped huesped, habitacion habitacion,
                    LocalDate fechaInicio, LocalDate fechaFin, boolean checkIn){
         this.huesped = huesped;
         this.habitacion = habitacion;
-        this.serviciosAdicionales = serviciosAdicionales;
+        this.serviciosAdicionales = new ArrayList<>();
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.checkIn = checkIn;
@@ -30,7 +32,7 @@ public class reserva {
     public habitacion getHabitacion(){
         return habitacion;
     }
-    public serviciosAdicionales getServiciosAdicionales(){
+    public List<serviciosAdicionales> getServiciosAdicionales(){
         return serviciosAdicionales;
     }
     public LocalDate getFechaInicio(){
@@ -50,7 +52,7 @@ public class reserva {
     public void setHabitacion(habitacion habitacion){
         this.habitacion = habitacion;
     }
-    public void setServiciosAdicionales(serviciosAdicionales serviciosAdicionales){
+    public void setServiciosAdicionales(List<serviciosAdicionales> serviciosAdicionales){
         this.serviciosAdicionales = serviciosAdicionales;
     }
     public void setFechaInicio(LocalDate fechaInicio){
@@ -63,7 +65,14 @@ public class reserva {
         this.checkIn = checkIn;
     }
 
-    public void registrarReserva(huesped huesped, habitacion habitacion, serviciosAdicionales serviciosAdicionales, LocalDate fechaInicio, LocalDate fechaFin){
+    public void agregarServicioAdicional(serviciosAdicionales servicio) {
+        if (this.serviciosAdicionales == null) {
+            this.serviciosAdicionales = new ArrayList<>();
+        }
+        this.serviciosAdicionales.add(servicio);
+    }
+
+    public void registrarReserva(huesped huesped, habitacion habitacion, LocalDate fechaInicio, LocalDate fechaFin){
 
     }
 
@@ -93,6 +102,30 @@ public class reserva {
         }
     }
 
+    public long getNumeroNoches() {
+        if (fechaInicio != null && fechaFin != null) {
+            return java.time.temporal.ChronoUnit.DAYS.between(fechaInicio, fechaFin);
+        }
+        return 0;
+    }
+
+    public double calcularSubtotalHabitacion() {
+        if (habitacion == null) {
+            return 0.0;
+        }
+        return habitacion.getPrecioPorNoche() * getNumeroNoches();
+    }
+
+    public double calcularSubtotalServicios() {
+        if (serviciosAdicionales == null || serviciosAdicionales.isEmpty()) {
+            return 0.0;
+        }
+        return serviciosAdicionales.stream().mapToDouble(proyecto_poo.modelo.entidad.serviciosAdicionales::getPrecio).sum();
+    }
+
+    public double calcularCostoTotal() {
+        return calcularSubtotalHabitacion() + calcularSubtotalServicios();
+    }
+
 
 }
-
