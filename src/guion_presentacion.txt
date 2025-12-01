@@ -1,0 +1,116 @@
+**Guion de Presentación del Sistema de Gestión Hotelera**
+
+**Personajes:**
+- **Ana:** Administradora del sistema.
+- **Carlos:** Recepcionista.
+- **David:** Cliente.
+
+**Duración estimada:** 4-5 minutos
+
+---
+
+### **Inicio (0:00 - 0:30) - Introducción**
+
+**(TODOS EN ESCENA)**
+
+**Ana:** ¡Hola a todos! Hoy vamos a presentarles nuestro nuevo Sistema de Gestión Hotelera. Yo soy Ana, y represento el rol de Administradora.
+
+**Carlos:** Yo soy Carlos, y actuaré como Recepcionista.
+
+**David:** Y yo soy David, un cliente que interactuará con el sistema a través de Carlos.
+
+**Ana:** Les mostraremos cómo nuestro software simplifica las operaciones diarias de un hotel, desde la gestión de personal hasta el flujo completo de un huésped.
+
+---
+
+### **Parte 1 (0:30 - 1:30) - Gestión de Empleados (Rol: Administrador)**
+
+**(ANA TOMA EL CONTROL)**
+
+**Ana:** Comienzo yo. Como administradora, tengo acceso total al sistema. Primero, inicio sesión con mis credenciales de 'admin'.
+
+**(Ana muestra la pantalla de Login y entra)**
+
+**Ana:** Este es el menú principal del administrador. Como pueden ver, tengo acceso a la pestaña "Editar", que está deshabilitada para otros roles. Desde aquí, gestiono el personal.
+
+**(Ana hace clic en la pestaña "Editar" y luego en "Agregar Empleado")**
+
+**Ana:** Si necesitamos contratar a un nuevo recepcionista, simplemente lleno este formulario con su nombre de usuario, una clave temporal y su rol. El sistema lo añade de forma segura.
+
+**(Ana cierra la ventana de agregar empleado)**
+
+**Ana:** También puedo modificar los datos de un empleado existente. Hago clic en "Modificar Empleado", busco a un usuario, por ejemplo, 'recepcion'.
+
+**(Ana abre la ventana, busca al usuario 'recepcion'. El formulario se habilita)**
+
+**Ana:** Una vez encontrado, puedo actualizar su contraseña o incluso cambiar su rol si fuera necesario. Todos los cambios se guardan directamente en la base de datos de nuestro sistema.
+
+**(Ana cierra la ventana y cede la palabra a Carlos)**
+
+---
+
+### **Parte 2 (1:30 - 3:00) - Gestión de Reservas y Huéspedes (Rol: Recepcionista)**
+
+**(CARLOS TOMA EL CONTROL, DAVID SIMULA UNA LLAMADA)**
+
+**Carlos:** Ahora es mi turno. Inicio sesión con mi cuenta de recepcionista. Mi menú es similar al de Ana, pero como ven, la pestaña "Editar" está correctamente deshabilitada para mí.
+
+**(Carlos muestra su menú)**
+
+**David (por teléfono):** ¡Hola! Me gustaría hacer una reserva.
+
+**Carlos:** ¡Por supuesto! Permítame un momento. Abro la opción "Crear reserva".
+
+**(Carlos abre la ventana de "Crear reserva" y rellena los datos que le proporciona David)**
+
+**Carlos:** El sistema me pide los datos del huésped, las fechas de la estancia y el tipo de habitación. Al confirmar, el sistema busca una habitación disponible y la asigna automáticamente a la reserva. ¡Listo, David, su reserva en la habitación 101 está confirmada!
+
+**(Carlos cierra la ventana. Luego, vuelve a la pestaña "Reserva")**
+
+**Carlos:** Ahora, digamos que David llama de nuevo para cambiar su fecha de salida. Utilizo "Buscar y Modificar Reserva", introduzco su DNI...
+
+**(Carlos busca la reserva, que aparece en pantalla)**
+
+**Carlos:** ...y aquí está. Modifico la fecha de fin y guardo los cambios. El sistema actualiza la reserva al instante.
+
+---
+
+### **Parte 3 (3:00 - 4:15) - Flujo de Check-In y Check-Out (Rol: Recepcionista)**
+
+**(CARLOS CONTINÚA)**
+
+**Carlos:** Ahora, simulemos la llegada de David al hotel. Me dirijo a la pestaña "Check in/out" y selecciono "Check In".
+
+**(Carlos abre la ventana de Check-In)**
+
+**Carlos:** Introduzco el DNI de David y confirmo. El sistema valida la reserva y realiza el check-in.
+
+**(Aparece un mensaje de éxito. Carlos cierra la ventana)**
+
+**Carlos:** La parte más interesante es cómo esto se refleja visualmente. Si voy a la pestaña "Habitaciones Disponibles", vemos que la habitación 101 ahora está en rojo, lo que significa que está 'Ocupada'. Este panel se actualiza en tiempo real cada vez que lo consulto, dándome una visión clara del estado del hotel.
+
+**(Carlos muestra la matriz de habitaciones con el color actualizado)**
+
+**Carlos:** Pasan los días y David está listo para irse. Vuelvo a la pestaña "Check in/out" y selecciono "Check Out".
+
+**(Carlos abre la ventana, introduce el DNI y confirma el check-out)**
+
+**Carlos:** El check-out se procesa. Y si ahora revisamos la vista de habitaciones una última vez...
+
+**(Carlos vuelve a la matriz de habitaciones)**
+
+**Carlos:** ...vemos que la habitación 101 ha cambiado a color amarillo. Esto indica que está 'En Limpieza' y notifica al personal de limpieza que ya pueden prepararla para el siguiente huésped.
+
+---
+
+### **Final (4:15 - 4:45) - Conclusión**
+
+**(TODOS EN ESCENA)**
+
+**Ana:** Como han visto, nuestro sistema integra todas las funcionalidades clave de forma intuitiva y segura.
+
+**Carlos:** Facilita mi trabajo diario, minimiza errores y me permite ver el estado del hotel de un solo vistazo.
+
+**David:** Y como cliente, mi experiencia fue rápida y sin complicaciones.
+
+**Ana:** Gracias por su atención. Este es el poder y la simplicidad de nuestro Sistema de Gestión Hotelera.
