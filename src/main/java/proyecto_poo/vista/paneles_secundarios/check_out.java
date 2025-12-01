@@ -11,9 +11,11 @@ public class check_out extends JFrame {
     private ControladorMain controlador;
     private JTextField dni_field;
     private JButton checkout_button;
+    private Runnable onCheckOutSuccess;
 
-    public check_out(ControladorMain controlador) {
+    public check_out(ControladorMain controlador, Runnable onCheckOutSuccess) {
         this.controlador = controlador;
+        this.onCheckOutSuccess = onCheckOutSuccess;
 
         setTitle("Sistema de Gestión Hotelera - Check Out");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -121,6 +123,7 @@ public class check_out extends JFrame {
                     // Si todo está correcto, realizamos el check-out
                     reserva.checkOut();
                     JOptionPane.showMessageDialog(this, "¡Check-out realizado con éxito!\nLa habitación pasará a estado de limpieza.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    onCheckOutSuccess.run();
                     this.dispose();
                 }
             }

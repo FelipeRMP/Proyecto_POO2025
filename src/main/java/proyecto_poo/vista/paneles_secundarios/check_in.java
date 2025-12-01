@@ -12,9 +12,11 @@ public class check_in extends JFrame {
     private ControladorMain controlador;
     private JTextField dni_field;
     private JButton checkin_button;
+    private Runnable onCheckInSuccess;
 
-    public check_in(ControladorMain controlador) {
+    public check_in(ControladorMain controlador, Runnable onCheckInSuccess) {
         this.controlador = controlador;
+        this.onCheckInSuccess = onCheckInSuccess;
 
         setTitle("Sistema de Gestión Hotelera - Check In");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -86,6 +88,7 @@ public class check_in extends JFrame {
                 // Si todo está correcto, realizamos el check-in
                 reserva.checkIn();
                 JOptionPane.showMessageDialog(this, "¡Check-in realizado con éxito!\nHabitación: " + reserva.getHabitacion().getNumero(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                onCheckInSuccess.run();
                 this.dispose();
             }
 

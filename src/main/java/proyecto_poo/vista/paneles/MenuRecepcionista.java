@@ -54,8 +54,8 @@ public class MenuRecepcionista extends JFrame {
         check.setBorder(BorderFactory.createEmptyBorder(60, 50, 60, 50));
         JButton check_in_btn = new JButton("Check In");
         JButton check_out_btn = new JButton("Check Out");
-        check_in_btn.addActionListener(e -> new check_in(controlador).setVisible(true));
-        check_out_btn.addActionListener(e -> new check_out(controlador).setVisible(true));
+        check_in_btn.addActionListener(e -> new check_in(controlador, this::actualizarVistaHabitaciones).setVisible(true));
+        check_out_btn.addActionListener(e -> new check_out(controlador, this::actualizarVistaHabitaciones).setVisible(true));
         check.add(check_in_btn);
         check.add(check_out_btn);
 
