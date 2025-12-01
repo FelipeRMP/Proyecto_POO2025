@@ -95,6 +95,15 @@ public class baseDeDatos {
         return habitaciones;
     }
 
+    public habitacion getHabitacionPorNumero(int numero) {
+        for (habitacion hab : habitaciones) {
+            if (hab.getNumero() == numero) {
+                return hab;
+            }
+        }
+        return null;
+    }
+
     public void crearHabitacion(int numero, int capacidadMaxima, double precioPorNoche, String tipo, estado_habitacion estado){
         habitaciones.add(new habitacion(numero, capacidadMaxima, precioPorNoche, tipo, estado));
     }

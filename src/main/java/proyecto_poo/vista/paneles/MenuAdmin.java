@@ -34,6 +34,7 @@ public class MenuAdmin extends JFrame {
         editar.setBorder(BorderFactory.createEmptyBorder(80, 50, 80, 50));
         JButton agregarEmpleadoBtn = new JButton("Agregar Empleado");
         JButton modificarEmpleadoBtn = new JButton("Modificar Empleado");
+
         agregarEmpleadoBtn.addActionListener(e -> new agregar_empleado(controlador).setVisible(true));
         modificarEmpleadoBtn.addActionListener(e -> new modificar_empleado(controlador).setVisible(true));
         editar.add(agregarEmpleadoBtn);
@@ -44,7 +45,8 @@ public class MenuAdmin extends JFrame {
         reserva.setBorder(BorderFactory.createEmptyBorder(80, 50, 80, 50));
         JButton Crear = new JButton("Crear reserva");
         JButton Modificar_reserva = new JButton("Buscar y Modificar Reserva");
-        Crear.addActionListener(e -> new crear_reserva(controlador).setVisible(true));
+
+        Crear.addActionListener(e -> new crear_reserva(controlador, () -> actualizarVistaHabitaciones()).setVisible(true));
         Modificar_reserva.addActionListener(e -> new modificar_reserva(controlador).setVisible(true));
         reserva.add(Crear);
         reserva.add(Modificar_reserva);

@@ -15,9 +15,11 @@ public class crear_reserva extends JFrame {
 
     private JButton selectedRoomButton = null;
     private ControladorMain controlador;
+    private Runnable onReservaExitosa;
 
-    public crear_reserva(ControladorMain controlador) {
+    public crear_reserva(ControladorMain controlador, Runnable onReservaExitosa) {
         this.controlador = controlador;
+        this.onReservaExitosa = onReservaExitosa;
         setLayout(new BorderLayout());
 
         setTitle("Sistema de Gestión Hotelera - Crear Reserva");
@@ -84,7 +86,17 @@ public class crear_reserva extends JFrame {
 
             btn.addActionListener(e -> {
                 if (selectedRoomButton != null) {
-
+                    // Restaura el color original del botón anterior
+                    int numHabitacionAnterior = Integer.parseInt(selectedRoomButton.getName());
+                    habitacion habitacionAnterior = controlador.getDb().getHabitacionPorNumero(numHabitacionAnterior);
+                    if (habitacionAnterior != null) {
+                        switch (habitacionAnterior.getEstado()) {
+                            case Disponible:
+                                selectedRoomButton.setBackground(Color.GREEN);
+                                break;
+                            // Agrega otros casos si es necesario
+                        }
+                    }
                 }
                 selectedRoomButton = (JButton) e.getSource();
                 selectedRoomButton.setBackground(Color.CYAN);
@@ -151,7 +163,7 @@ public class crear_reserva extends JFrame {
                     return;
                 }
 
-                // 5. Crear la reserva
+                // 5 Crear la reserva
                 reserva nuevaReserva = new reserva(nuevoHuesped, habitacionSeleccionada, fechaInicio, fechaFin, false);
 
                 // Marcar la habitación como reservada para evitar dobles asignaciones
@@ -162,6 +174,11 @@ public class crear_reserva extends JFrame {
 
                 // 7. Confirmación y cerrar ventana
                 JOptionPane.showMessageDialog(this, "Reserva creada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
+                if (onReservaExitosa != null) {
+                    onReservaExitosa.run();
+                }
+
                 this.dispose();
 
             } catch (NumberFormatException ex) {
