@@ -1,6 +1,7 @@
 package proyecto_poo.vista.paneles;
 
 import proyecto_poo.controlador.ControladorMain;
+import proyecto_poo.modelo.entidad.estado_habitacion;
 import proyecto_poo.vista.paneles_secundarios.*;
 
 import javax.swing.*;
@@ -118,9 +119,6 @@ public class MenuAdmin extends JFrame {
                                     break;
                                 case En_Limpieza:
                                     btn.setBackground(new Color(255, 235, 59)); // Amarillo
-                                    break;
-                                case Fuera_de_servicio:
-                                    btn.setBackground(Color.GRAY);
                                     break;
                             }
                             break; 
