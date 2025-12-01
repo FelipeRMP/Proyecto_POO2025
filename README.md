@@ -8,7 +8,7 @@ User Recepcionista: recepcion123
 
 pass recepcionista: recepcion123
 
-Para ejecutar se encuentra un metodo main en la clase Login.
+Para ejecutar se encuentra un metodo main en la clase Login o usar mvn compile exec:java en consola.
 
 Este proyecto es una aplicación Java desarrollada siguiendo el patrón arquitectónico Modelo-Vista-Controlador (MVC). Es un sistema de reservas de hotel.
 
