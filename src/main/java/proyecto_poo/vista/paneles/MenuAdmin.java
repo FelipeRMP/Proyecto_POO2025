@@ -123,10 +123,7 @@ public class MenuAdmin extends JFrame {
 
 
 
-
-
-
-        // 3. Agregar paneles al JTabbedPane
+        // 3. Agregar paneles
         tabs.addTab("Editar", editar);
         tabs.addTab("Reserva", reserva);
         tabs.addTab("Check in/out", check);

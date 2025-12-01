@@ -77,7 +77,7 @@ public class modificar_empleado extends JFrame {
         // Estado inicial: formulario deshabilitado
         setFormularioHabilitado(false);
 
-        // --- Action Listeners ---
+        //  listeners
         boton_buscar.addActionListener(e -> buscarEmpleado());
         boton_guardar.addActionListener(e -> guardarCambios());
 
@@ -140,11 +140,11 @@ public class modificar_empleado extends JFrame {
             return;
         }
         
-        // Actualizar el objeto empleado_actual con los nuevos datos
+        // actualizar objeto
         empleado_actual.setClave(nuevaClave);
         empleado_actual.setTipo(nuevoTipo);
 
-        // Llamar al controlador para persistir los cambios
+        // actualizar cambios
         controlador.getDb().actualizarEmpleado(empleado_actual);
 
         JOptionPane.showMessageDialog(this, "Empleado actualizado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
